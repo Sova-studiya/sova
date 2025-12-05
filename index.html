@@ -459,6 +459,141 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
+        /* ---------------------------------- */
+        /* НОВЫЕ СТИЛИ ДЛЯ ИГРОВОЙ СЕКЦИИ (СЕТКА) */
+        /* ---------------------------------- */
+        .games {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+        }
+
+        .games h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        /* Адаптивная сетка вместо карусели */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3-4 карточки в ряд */
+            gap: 20px;
+            padding: 1rem 0;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            /* Убрано: flex: 0 0 300px; scroll-snap-align: start; */
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-preview {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .game-content {
+            padding: 1rem;
+        }
+
+        .game-content h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #6B9B6B;
+            min-height: 2.2rem;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 0.5rem;
+        }
+
+        .game-tag {
+            background: #D4A5A5;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Навигация карусели удалена, т.к. используется сетка */
+        .carousel-nav {
+            display: none !important;
+        }
+
+        /* Modal/Dialog for Game */
+        dialog {
+            border: none;
+            border-radius: 15px;
+            padding: 0;
+            max-width: 90vw;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .dialog-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
+        .game-iframe {
+            width: 100%;
+            flex-grow: 1;
+            border: none;
+            background: #f0f0f0;
+        }
+
+        .dialog-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.5rem 0.5rem 0 0.5rem;
+            background: #6B9B6B;
+        }
+
+        .close-dialog {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.5rem;
+        }
+
+        .close-dialog:hover {
+            color: #D4A5A5;
+        }
+        /* ---------------------------------- */
+        /* КОНЕЦ НОВЫХ СТИЛЕЙ */
+        /* ---------------------------------- */
+
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             body {
@@ -534,8 +669,20 @@
             }
 
             /* Mobile text sizes */
-            .features h2, .programs h2, .why-us h2, .gallery h2 {
+            .features h2, .programs h2, .why-us h2, .gallery h2, .games h2 {
                 font-size: 2rem;
+            }
+
+            /* Games mobile: сетка на одну колонку */
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            dialog {
+                width: 95vw;
+                max-width: 95vw;
+                height: 95vh;
+                max-height: 95vh;
             }
         }
 
@@ -557,6 +704,9 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
                 margin: 8px auto;
+                display: block;
+                max-width: 280px;
+                text-align: center;
             }
 
             .enrollment-announcement h2 {
@@ -599,7 +749,7 @@
 <li><a href="#home">Главная</a></li>
 <li><a href="#about">О студии</a></li>
 <li><a href="#programs">Программы</a></li>
-<li><a href="#gallery">Галерея</a></li>
+<li><a href="#games">Игры</a></li> <li><a href="#gallery">Галерея</a></li>
 <li><a href="#contact">Контакты</a></li>
 </ul>
 </nav>
@@ -715,6 +865,20 @@
 </div>
 </section>
 
+<section class="games" id="games">
+    <div class="container">
+        <h2>🎉 Наши Развивающие Игры </h2>
+        <div class="game-grid" id="gameGrid"> </div>
+    </div>
+</section>
+<dialog id="gameDialog" aria-labelledby="gameDialogTitle">
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <button class="close-dialog" aria-label="Закрыть игру (Escape)">×</button>
+        </div>
+        <iframe class="game-iframe" id="gameIframe" title="Развивающая игра"></iframe>
+    </div>
+</dialog>
 <section class="features" id="about">
 <div class="container">
 <h2>Почему выбирают нас</h2>
@@ -858,13 +1022,50 @@
 </footer>
 
 <script>
-// Модальное окно для галереи
+// JSON-массив с данными игр
+const GAMES_DATA = [
+    {
+        title: "Найди пару для игрушки",
+        previewUrl: "img/memo_toys.png", // Замените этот файл на реальное превью
+        tags: ["Память", "5-6 лет", "Игрушки"],
+        gameUrl: "https://sova-studiya.github.io/memo/"
+    },
+    {
+        title: "Угости друзей",
+        previewUrl: "img/spot_friends.png", // Замените этот файл на реальное превью
+        tags: ["3 класс", "Еда", "Английский"],
+        gameUrl: "https://sova-studiya.github.io/Spot_3_like-likes/"
+    },
+    {
+        title: "Найди верного героя",
+        previewUrl: "img/kb1_hero.png", // Замените этот файл на реальное превью
+        tags: ["Kid's box 1", "Английский", "Лексика"],
+        gameUrl: "https://sova-studiya.github.io/KB1_U4_words1/"
+    },
+    {
+        title: "Найди пару для еды",
+        previewUrl: "img/memo_food_en.png", // Замените этот файл на реальное превью
+        tags: ["2 класс", "Английский", "Еда"],
+        gameUrl: "https://sova-studiya.github.io/memory-game-english/"
+    },
+    {
+        title: "Найди правильную пару",
+        previewUrl: "img/memo_food_pair.png", // Замените этот файл на реальное превью
+        tags: ["4 класс", "Еда", "Память"],
+        gameUrl: "https://sova-studiya.github.io/memo_game_food/"
+    }
+    // ДОБАВЛЯЙТЕ СВОИ ИГРЫ СЮДА
+];
+
+
 document.addEventListener('DOMContentLoaded', function() {
+    // ----------------------------------
+    // ЛОГИКА ГАЛЕРЕИ (существующая)
+    // ----------------------------------
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modalImg');
-    const caption = document.getElementById('caption');
     const close = document.getElementsByClassName('close')[0];
-    
+
     // Добавляем обработчики для всех изображений в галерее
     const galleryImages = document.querySelectorAll('.gallery-grid img');
     galleryImages.forEach(img => {
@@ -873,18 +1074,87 @@ document.addEventListener('DOMContentLoaded', function() {
             modalImg.src = this.src;
         });
     });
-    
+
     // Закрытие модального окна
     close.addEventListener('click', function() {
         modal.style.display = 'none';
     });
-    
+
     // Закрытие по клику вне изображения
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             modal.style.display = 'none';
         }
     });
+
+    // ----------------------------------
+    // НОВАЯ ЛОГИКА ИГРОВОЙ СЕКЦИИ (СЕТКА)
+    // ----------------------------------
+    const gameGrid = document.getElementById('gameGrid'); // ID изменен
+    const dialog = document.getElementById('gameDialog');
+    const iframe = document.getElementById('gameIframe');
+    const closeDialogButton = document.querySelector('.close-dialog');
+
+    // Функция генерации карточки игры
+    function createGameCard(game) {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Открыть игру: ${game.title}`);
+        card.dataset.url = game.gameUrl;
+
+        const tagsHtml = game.tags.map(tag => `<span class="game-tag">${tag}</span>`).join('');
+
+        card.innerHTML = `
+            <img class="game-preview" src="${game.previewUrl}" alt="Превью игры: ${game.title}">
+            <div class="game-content">
+                <h3>${game.title}</h3>
+                <div class="game-tags">${tagsHtml}</div>
+            </div>
+        `;
+
+        card.addEventListener('click', () => openGame(game.gameUrl));
+        // Доступность: открывать по Enter/Space
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openGame(game.gameUrl);
+            }
+        });
+
+        return card;
+    }
+
+    // Заполнение сетки
+    GAMES_DATA.forEach(game => {
+        gameGrid.appendChild(createGameCard(game));
+    });
+
+    // Функция открытия модалки и "ленивой" загрузки
+    function openGame(url) {
+        iframe.src = url; // Ленивая загрузка
+        dialog.showModal();
+        dialog.focus();
+    }
+
+    // Функция закрытия модалки и очистки iframe
+    function closeGame() {
+        dialog.close();
+        iframe.src = ''; // Очистка iframe для остановки игры/видео
+    }
+
+    // Закрытие по кнопке в диалоге
+    closeDialogButton.addEventListener('click', closeGame);
+
+    // Закрытие по клавише Esc (встроенная функция dialog)
+    dialog.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeGame();
+        }
+    });
+    
+    // Вся логика навигации карусели удалена, т.к. используется сетка.
 });
 </script>
 </body>
