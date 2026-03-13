@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
@@ -21,7 +20,7 @@
             color: #333;
             background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
             min-height: 100vh;
-            padding-top: 70px; /* Отступ для фиксированного хедера */
+            padding-top: 70px;
         }
 
         .container {
@@ -99,7 +98,6 @@
             align-items: flex-end;
         }
 
-        /* Section for buttons, now with full-width white background */
         .buttons-section {
             background: white;
             padding: 40px 0;
@@ -158,14 +156,6 @@
         .programs {
             padding: 80px 0;
             background: linear-gradient(135deg, #f8f5f0 0%, #f0ede8 100%);
-        }
-
-        .programs .enrollment-text {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #2d5a2d;
-            margin-bottom: 2rem;
-            font-weight: 600;
         }
 
         .programs h2 {
@@ -334,7 +324,6 @@
             transform: scale(1.05);
         }
 
-        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -356,12 +345,7 @@
             border-radius: 10px;
         }
 
-        #caption {
-            display: none; /* Скрываем подпись */
-            text-align: center;
-            color: #ccc;
-            margin-top: 15px;
-        }
+        #caption { display: none; }
 
         .close {
             position: absolute;
@@ -373,7 +357,7 @@
             cursor: pointer;
         }
 
-        /* Why Choose Us Section */
+        /* Why Choose Us */
         .why-us {
             padding: 80px 0;
             background: linear-gradient(135deg, #f8f5f0 0%, #f0ede8 100%);
@@ -402,9 +386,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .benefit-item:hover {
-            transform: translateX(5px);
-        }
+        .benefit-item:hover { transform: translateX(5px); }
 
         .benefit-icon {
             font-size: 2rem;
@@ -427,9 +409,7 @@
             align-items: start;
         }
 
-        .footer-section {
-            text-align: left;
-        }
+        .footer-section { text-align: left; }
 
         .footer-section h3 {
             margin-bottom: 1rem;
@@ -442,14 +422,9 @@
             line-height: 1.8;
         }
 
-        .footer-section a:hover {
-            color: #6B9B6B;
-        }
+        .footer-section a:hover { color: #6B9B6B; }
 
-        /* Map Section */
-        .map-container {
-            margin-top: 1rem;
-        }
+        .map-container { margin-top: 1rem; }
 
         .map-container iframe {
             width: 100%;
@@ -459,9 +434,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* ---------------------------------- */
-        /* НОВЫЕ СТИЛИ ДЛЯ ИГРОВОЙ СЕКЦИИ (СЕТКА) */
-        /* ---------------------------------- */
+        /* Games */
         .games {
             padding: 60px 0;
             background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
@@ -474,10 +447,9 @@
             color: #333;
         }
 
-        /* Адаптивная сетка вместо карусели */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3-4 карточки в ряд */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding: 1rem 0;
         }
@@ -505,9 +477,7 @@
             background: #eee;
         }
 
-        .game-content {
-            padding: 1rem;
-        }
+        .game-content { padding: 1rem; }
 
         .game-content h3 {
             font-family: 'Nunito', sans-serif;
@@ -533,43 +503,33 @@
             font-weight: 600;
         }
 
-        /* Навигация карусели удалена, т.к. используется сетка */
-        .carousel-nav {
-            display: none !important;
-        }
+        .carousel-nav { display: none !important; }
 
-        /* Modal/Dialog for Game */
         dialog {
-            /* Основные настройки, чтобы диалог занимал большую часть экрана */
             border: none;
             border-radius: 15px;
             padding: 0;
-            
-            /* Увеличение размера окна до 95% от размера вьюпорта */
-            max-width: 95vw; 
-            width: 95vw; 
+            max-width: 95vw;
+            width: 95vw;
             max-height: 95vh;
             height: 95vh;
-            
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            margin: auto; /* Центрирование */
+            margin: auto;
         }
 
-        dialog::backdrop {
-            background: rgba(0, 0, 0, 0.9); /* Сделаем фон темнее для лучшего фокуса */
-        }
+        dialog::backdrop { background: rgba(0, 0, 0, 0.9); }
 
         .dialog-content {
             display: flex;
             flex-direction: column;
             width: 100%;
-            height: 100%; /* Занимает 100% от размера dialog */
+            height: 100%;
         }
 
         .game-iframe {
             width: 100%;
-            flex-grow: 1; /* Занимает всё доступное вертикальное пространство */
+            flex-grow: 1;
             border: none;
             background: #f0f0f0;
         }
@@ -591,24 +551,187 @@
             padding: 0.5rem;
         }
 
-        .close-dialog:hover {
-            color: #D4A5A5;
-        }
-        /* ---------------------------------- */
-        /* КОНЕЦ НОВЫХ СТИЛЕЙ */
-        /* ---------------------------------- */
+        .close-dialog:hover { color: #D4A5A5; }
 
+        /* ==========================================
+           ОТЗЫВЫ — бесконечная лента
+        ========================================== */
+        .reviews {
+            padding: 60px 0;
+            background: white;
+            overflow: hidden;
+        }
+
+        .reviews h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .reviews-subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .reviews-subtitle a {
+            color: #6B9B6B;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .reviews-subtitle a:hover { text-decoration: underline; }
+
+        .reviews-track-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: marquee-scroll 40s linear infinite;
+        }
+
+        .reviews-track:hover { animation-play-state: paused; }
+
+        @keyframes marquee-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .review-card {
+            background: #f8faf8;
+            border-radius: 18px;
+            padding: 1.4rem 1.6rem;
+            width: 300px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border: 1px solid #e8f0e8;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .review-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #6B9B6B;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .review-meta { flex: 1; min-width: 0; }
+
+        .review-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .review-date {
+            font-size: 0.78rem;
+            color: #aaa;
+        }
+
+        .review-stars {
+            color: #f5a623;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.55;
+        }
+
+        .review-teacher {
+            font-size: 0.8rem;
+            color: #6B9B6B;
+            font-weight: 600;
+        }
+
+        .review-source {
+            font-size: 0.75rem;
+            color: #bbb;
+            margin-top: auto;
+        }
+
+        /* ==========================================
+           НОВОСТИ / МЕРОПРИЯТИЯ
+        ========================================== */
+        .news {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+        }
+
+        .news h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .news-subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-img-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-img-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+        }
+
+        .news-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            body {
-                padding-top: 50px; /* Отступ для хедера на мобильных */
-            }
-            .nav-links {
-                display: none;
-            }
+            body { padding-top: 50px; }
 
-            /* Hero Section Mobile */
+            .nav-links { display: none; }
+
             .hero {
                 padding: 100px 0 120px;
                 min-height: 400px;
@@ -626,84 +749,48 @@
                 text-align: center;
             }
 
-            .enrollment-announcement h2 {
-                font-size: 1.8rem;
-            }
-
-            .programs .enrollment-text {
-                font-size: 1.4rem;
-            }
+            .enrollment-announcement h2 { font-size: 1.8rem; }
 
             .features-grid,
-            .programs-grid {
-                grid-template-columns: 1fr;
-            }
+            .programs-grid { grid-template-columns: 1fr; }
 
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .program-card {
-                min-height: 350px;
-            }
+            .program-card { min-height: 350px; }
 
-            .gallery-slide {
-                height: 300px;
-            }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-section { text-align: center; }
 
-            .gallery-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .gallery-nav.prev {
-                left: 10px;
-            }
-
-            .gallery-nav.next {
-                right: 10px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-section {
-                text-align: center;
-            }
-
-            /* Mobile text sizes */
-            .features h2, .programs h2, .why-us h2, .gallery h2, .games h2 {
+            .features h2, .programs h2, .why-us h2,
+            .gallery h2, .games h2, .reviews h2, .news h2 {
                 font-size: 2rem;
             }
 
-            /* Games mobile: делаем модалку еще более крупной на маленьких экранах */
+            .review-card { width: 260px; }
+            .reviews-track { animation-duration: 30s; }
+            .news-grid { grid-template-columns: 1fr; }
+
             dialog {
                 width: 98vw;
                 max-width: 98vw;
                 height: 98vh;
                 max-height: 98vh;
-                border-radius: 0; /* Убираем скругление для полного заполнения экрана */
-                margin: 0; /* Убираем отступы */
+                border-radius: 0;
+                margin: 0;
                 top: 0;
                 left: 0;
             }
         }
 
         @media (max-width: 600px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
+            .benefits-grid { grid-template-columns: 1fr; }
 
             .hero {
                 padding: 90px 0 100px;
                 min-height: 350px;
             }
 
-            .buttons-section {
-                padding-top: 30px;
-            }
+            .buttons-section { padding-top: 30px; }
 
             .cta-button {
                 padding: 10px 20px;
@@ -714,13 +801,7 @@
                 text-align: center;
             }
 
-            .enrollment-announcement h2 {
-                font-size: 1.6rem;
-            }
-
-            .programs .enrollment-text {
-                font-size: 1.2rem;
-            }
+            .enrollment-announcement h2 { font-size: 1.6rem; }
         }
 
         @media (max-width: 480px) {
@@ -729,9 +810,7 @@
                 min-height: 300px;
             }
 
-            .buttons-section {
-                padding-top: 20px;
-            }
+            .buttons-section { padding-top: 20px; }
 
             .cta-button {
                 padding: 8px 18px;
@@ -740,143 +819,140 @@
                 max-width: 250px;
             }
 
-            .container {
-                padding: 0 15px;
-            }
+            .container { padding: 0 15px; }
+            .review-card { width: 230px; }
         }
 </style>
 </head>
 <body>
+
 <header>
 <nav class="container">
-<div class="logo">Совёнок</div>
-<ul class="nav-links">
-<li><a href="#home">Главная</a></li>
-<li><a href="#about">О студии</a></li>
-<li><a href="#programs">Программы</a></li>
-<li><a href="#games">Игры</a></li> <li><a href="#gallery">Галерея</a></li>
-<li><a href="#contact">Контакты</a></li>
-</ul>
+    <div class="logo">Совёнок</div>
+    <ul class="nav-links">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#about">О студии</a></li>
+        <li><a href="#programs">Программы</a></li>
+        <li><a href="#games">Игры</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#news">Новости</a></li>
+        <li><a href="#contact">Контакты</a></li>
+    </ul>
 </nav>
 </header>
 
 <section class="hero" id="home">
-<div class="container">
-</div>
+    <div class="container"></div>
 </section>
 
 <section class="buttons-section">
-<div class="container">
-<a class="cta-button" href="#contact">Записаться на пробное занятие</a>
-<a class="cta-button secondary" href="#programs">Наши программы</a>
-</div>
-</section>
-
-<section class="enrollment-announcement">
-<div class="container">
-<h2>Идёт набор на 2025-2026 учебный год!</h2>
-</div>
+    <div class="container">
+        <a class="cta-button" href="#contact">Записаться на пробное занятие</a>
+        <a class="cta-button secondary" href="#programs">Актуальные программы</a>
+    </div>
 </section>
 
 <section class="programs" id="programs">
-<div class="container">
-<h2>Наши направления</h2>
-<div class="programs-grid">
-<div class="program-card">
-<img alt="Раннее развитие" src="img/early.png"/>
-<h3>Раннее развитие</h3>
-<div class="age">3-5 лет</div>
-<p>Занятия в мини-группах с заботливым педагогом:</p>
-<ul>
-<li>Развитие речи и мышления</li>
-<li>Моторика и внимание</li>
-<li>Музыкальные игры</li>
-<li>Сенсорика и познание мира</li>
-</ul>
-<div class="price">1400 рублей за 4 занятия</div>
-</div>
+    <div class="container">
+        <h2>Наши направления</h2>
+        <div class="programs-grid">
 
-<div class="program-card">
-<img alt="Подготовка к школе" src="img/school.png"/>
-<h3>Подготовка к школе</h3>
-<div class="age">5-7 лет</div>
-<p>Комплексная подготовка будущих первоклассников:</p>
-<ul>
-<li>Развитие логики и памяти</li>
-<li>Обучение чтению и письму</li>
-<li>Основы математики</li>
-<li>Развитие самостоятельности</li>
-</ul>
-<div class="price">2800 рублей за 8 занятий</div>
-</div>
+            <div class="program-card">
+                <img alt="Раннее развитие" src="img/early.png"/>
+                <h3>Раннее развитие</h3>
+                <div class="age">3-5 лет</div>
+                <p>Занятия в мини-группах с заботливым педагогом:</p>
+                <ul>
+                    <li>Развитие речи и мышления</li>
+                    <li>Моторика и внимание</li>
+                    <li>Музыкальные игры</li>
+                    <li>Сенсорика и познание мира</li>
+                </ul>
+                <div class="price">1400 рублей за 4 занятия</div>
+            </div>
 
-<div class="program-card">
-<img alt="Помощь школьнику" src="img/homework.png"/>
-<h3>Помощь школьнику</h3>
-<div class="age">1-4 класс</div>
-<p>Помощь в выполнении домашних заданий:</p>
-<ul>
-<li>Русский язык</li>
-<li>Математика</li>
-<li>Чтение</li>
-<li>Другие предметы</li>
-</ul>
-<div class="price">4000 рублей за 8 занятий</div>
-</div>
+            <div class="program-card">
+                <img alt="Подготовка к школе" src="img/school.png"/>
+                <h3>Подготовка к школе</h3>
+                <div class="age">5-7 лет</div>
+                <p>Комплексная подготовка будущих первоклассников:</p>
+                <ul>
+                    <li>Развитие логики и памяти</li>
+                    <li>Обучение чтению и письму</li>
+                    <li>Основы математики</li>
+                    <li>Развитие самостоятельности</li>
+                </ul>
+                <div class="price">2800 рублей за 8 занятий</div>
+            </div>
 
-<div class="program-card">
-<img alt="Школа+" src="img/help.png"/>
-<h3>Школа+</h3>
-<div class="age">1-4 класс</div>
-<p>Групповое закрепление школьной программы:</p>
-<ul>
-<li>Русский язык</li>
-<li>Математика</li>
-<li>Устранение пробелов</li>
-<li>Углубленное изучение</li>
-</ul>
-<div class="price">3000 рублей за 8 занятий</div>
-</div>
+            <div class="program-card">
+                <img alt="Помощь школьнику" src="img/homework.png"/>
+                <h3>Помощь школьнику</h3>
+                <div class="age">1-4 класс</div>
+                <p>Помощь в выполнении домашних заданий:</p>
+                <ul>
+                    <li>Русский язык</li>
+                    <li>Математика</li>
+                    <li>Чтение</li>
+                    <li>Другие предметы</li>
+                </ul>
+                <div class="price">4000 рублей за 8 занятий</div>
+            </div>
 
-<div class="program-card">
-<img alt="Творчество" src="img/creativity.png"/>
-<h3>Арт-лаборатория</h3>
-<div class="age">Все возрасты</div>
-<p>Еженедельные творческие занятия:</p>
-<ul>
-<li>Лепка и рисование</li>
-<li>Аппликации и поделки</li>
-<li>Работа с новыми материалами</li>
-<li>Развитие воображения</li>
-</ul>
-<div class="price">2800 рублей за 4 занятия</div>
-</div>
+            <div class="program-card">
+                <img alt="Школа+" src="img/help.png"/>
+                <h3>Школа+</h3>
+                <div class="age">1-4 класс</div>
+                <p>Групповое закрепление школьной программы:</p>
+                <ul>
+                    <li>Русский язык</li>
+                    <li>Математика</li>
+                    <li>Устранение пробелов</li>
+                    <li>Углубленное изучение</li>
+                </ul>
+                <div class="price">3000 рублей за 8 занятий</div>
+            </div>
 
-<div class="program-card">
-<img alt="Английский язык" src="img/english.png"/>
-<h3>Английский язык</h3>
-<div class="age">От 5 лет</div>
-<p>Изучение английского через игру:</p>
-<ul>
-<li>Песни и мультфильмы</li>
-<li>Развитие разговорной речи</li>
-<li>Базовая грамматика</li>
-<li>Занятия по уровням</li>
-</ul>
-<div class="price">2800 рублей за 8 занятий</div>
-</div>
+            <div class="program-card">
+                <img alt="Творчество" src="img/creativity.png"/>
+                <h3>Арт-лаборатория</h3>
+                <div class="age">Все возрасты</div>
+                <p>Творческие занятия по субботам:</p>
+                <ul>
+                    <li>Лепка и рисование</li>
+                    <li>Аппликации и поделки</li>
+                    <li>Работа с новыми материалами</li>
+                    <li>Развитие воображения</li>
+                </ul>
+                <div class="price">В зависимости от выбранного МК</div>
+            </div>
 
-</div>
-</div>
+            <div class="program-card">
+                <img alt="Английский язык" src="img/english.png"/>
+                <h3>Английский язык</h3>
+                <div class="age">От 5 лет</div>
+                <p>Изучение английского через игру:</p>
+                <ul>
+                    <li>Песни и мультфильмы</li>
+                    <li>Развитие разговорной речи</li>
+                    <li>Базовая грамматика</li>
+                    <li>Занятия по уровням</li>
+                </ul>
+                <div class="price">2800 рублей за 8 занятий</div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <section class="games" id="games">
     <div class="container">
-        <h2>🎉 Наши Развивающие Игры </h2>
-        <div class="game-grid" id="gameGrid"> 
-            </div>
+        <h2>🎉 Развивающие Игры</h2>
+        <div class="game-grid" id="gameGrid"></div>
     </div>
 </section>
+
 <dialog id="gameDialog" aria-labelledby="gameDialogTitle">
     <div class="dialog-content">
         <div class="dialog-header">
@@ -885,282 +961,324 @@
         <iframe class="game-iframe" id="gameIframe" title="Развивающая игра"></iframe>
     </div>
 </dialog>
+
 <section class="features" id="about">
-<div class="container">
-<h2>Почему выбирают нас</h2>
-<div class="features-grid">
-<div class="feature-card">
-<img class="feature-icon" src="img/home.png" alt="Гуманная педагогика"/>
-<h3>Гуманная педагогика</h3>
-<p>Тёплая и уютная обстановка, где каждый ребёнок чувствует себя комфортно и защищённо</p>
-</div>
-<div class="feature-card">
-<img class="feature-icon" src="img/pupils.png" alt="Маленькие группы"/>
-<h3>Маленькие группы</h3>
-<p>Индивидуальный подход к каждому ребёнку в группах до 6 человек</p>
-</div>
-<div class="feature-card">
-<img class="feature-icon" src="img/game.png" alt="Игровые методики"/>
-<h3>Игровые методики</h3>
-<p>Современные развивающие программы через игру и творчество</p>
-</div>
-<div class="feature-card">
-<img class="feature-icon" src="img/teacher.png" alt="Опытные педагоги"/>
-<h3>Опытные педагоги</h3>
-<p>Квалифицированные специалисты, любящие детей и своё дело</p>
-</div>
-<div class="feature-card">
-<img class="feature-icon" src="img/photo.png" alt="Фото-отчёты"/>
-<h3>Фото-отчёты</h3>
-<p>Регулярные фото и видео с занятий для родителей</p>
-</div>
-<div class="feature-card">
-<img class="feature-icon" src="img/friend.png" alt="Пробное занятие"/>
-<h3>Пробное занятие</h3>
-<p>Возможность познакомиться со студией и педагогами</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2>Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img class="feature-icon" src="img/home.png" alt="Гуманная педагогика"/>
+                <h3>Гуманная педагогика</h3>
+                <p>Тёплая и уютная обстановка, где каждый ребёнок чувствует себя комфортно и защищённо</p>
+            </div>
+            <div class="feature-card">
+                <img class="feature-icon" src="img/pupils.png" alt="Маленькие группы"/>
+                <h3>Маленькие группы</h3>
+                <p>Индивидуальный подход к каждому ребёнку в группах до 6 человек</p>
+            </div>
+            <div class="feature-card">
+                <img class="feature-icon" src="img/game.png" alt="Игровые методики"/>
+                <h3>Игровые методики</h3>
+                <p>Современные развивающие программы через игру и творчество</p>
+            </div>
+            <div class="feature-card">
+                <img class="feature-icon" src="img/teacher.png" alt="Опытные педагоги"/>
+                <h3>Опытные педагоги</h3>
+                <p>Квалифицированные специалисты, любящие детей и своё дело</p>
+            </div>
+            <div class="feature-card">
+                <img class="feature-icon" src="img/photo.png" alt="Фото-отчёты"/>
+                <h3>Фото-отчёты</h3>
+                <p>Регулярные фото и видео с занятий для родителей</p>
+            </div>
+            <div class="feature-card">
+                <img class="feature-icon" src="img/friend.png" alt="Пробное занятие"/>
+                <h3>Пробное занятие</h3>
+                <p>Возможность познакомиться со студией и педагогами</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="gallery" id="gallery">
-<div class="container">
-<h2>Галерея</h2>
-<div class="gallery-grid">
-<img alt="Занятие по раннему развитию" src="gallery/photo1.jpg"/>
-<img alt="Творческий мастер-класс" src="gallery/photo2.jpg"/>
-<img alt="Подготовка к школе" src="gallery/photo3.jpg"/>
-<img alt="Английский язык для детей" src="gallery/photo4.jpg"/>
-<img alt="Детские поделки" src="gallery/photo5.jpg"/>
-<img alt="Игровая зона" src="gallery/photo6.jpg"/>
-<img alt="Летний лагерь" src="gallery/photo7.jpg"/>
-<img alt="Дети на занятии" src="gallery/photo8.jpg"/>
-<img alt="Праздничное мероприятие" src="gallery/photo9.jpg"/>
-<img alt="Выпускной" src="gallery/photo10.jpg"/>
-</div>
-<div class="modal" id="modal">
-<span class="close">×</span>
-<img class="modal-content" id="modalImg"/>
-<div id="caption"></div>
-</div>
-</div>
+    <div class="container">
+        <h2>Галерея</h2>
+        <div class="gallery-grid">
+            <img alt="Занятие по раннему развитию" src="gallery/photo1.jpg"/>
+            <img alt="Творческий мастер-класс" src="gallery/photo2.jpg"/>
+            <img alt="Подготовка к школе" src="gallery/photo3.jpg"/>
+            <img alt="Английский язык для детей" src="gallery/photo4.jpg"/>
+            <img alt="Детские поделки" src="gallery/photo5.jpg"/>
+            <img alt="Игровая зона" src="gallery/photo6.jpg"/>
+            <img alt="Летний лагерь" src="gallery/photo7.jpg"/>
+            <img alt="Дети на занятии" src="gallery/photo8.jpg"/>
+            <img alt="Праздничное мероприятие" src="gallery/photo9.jpg"/>
+            <img alt="Выпускной" src="gallery/photo10.jpg"/>
+        </div>
+        <div class="modal" id="modal">
+            <span class="close">×</span>
+            <img class="modal-content" id="modalImg"/>
+            <div id="caption"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="reviews" id="reviews">
+    <div class="container">
+        <h2>Отзывы родителей</h2>
+        <p class="reviews-subtitle">
+            Реальные отзывы с&nbsp;<a href="https://yandex.ru/maps/-/CHHmaQPZ" target="_blank" rel="noopener">Яндекс.Карт</a>
+        </p>
+    </div>
+    <div class="reviews-track-wrapper">
+        <div class="reviews-track" id="reviewsTrack"></div>
+    </div>
+</section>
+
+<!-- НОВОСТИ / МЕРОПРИЯТИЯ -->
+<section class="news" id="news">
+    <div class="container">
+        <h2>📅 Новости и мероприятия</h2>
+        <p class="news-subtitle">Следите за нашими ближайшими событиями</p>
+        <div class="news-grid">
+            <div class="news-img-card">
+                <img src="img/drawing.jpg" alt="Анонс мастер-класса по рисованию"/>
+            </div>
+            <div class="news-img-card">
+                <img src="img/pottery.jpg" alt="Анонс мастер-класса по лепке"/>
+            </div>
+            <div class="news-img-card">
+                <img src="img/sewew.jpg" alt="Анонс мастер-класса по рукоделию"/>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="why-us">
-<div class="container">
-<h2>Игра + Обучение = Результат с радостью</h2>
-<div class="benefits-grid">
-<div class="benefit-item">
-<div class="benefit-icon">✅</div>
-<div>
-<h4>Тёплая атмосфера</h4>
-<p>Домашний уют и забота</p>
-</div>
-</div>
-<div class="benefit-item">
-<div class="benefit-icon">✅</div>
-<div>
-<h4>Индивидуальный подход</h4>
-<p>Учитываем особенности каждого ребёнка</p>
-</div>
-</div>
-<div class="benefit-item">
-<div class="benefit-icon">✅</div>
-<div>
-<h4>Современные методики</h4>
-<p>Проверенные развивающие программы</p>
-</div>
-</div>
-<div class="benefit-item">
-<div class="benefit-icon">✅</div>
-<div>
-<h4>Гибкое расписание</h4>
-<p>Удобное время для всех</p>
-</div>
-</div>
-<div class="benefit-item">
-<div class="benefit-icon">✅</div>
-<div>
-<h4>Удобное расположение</h4>
-<p>пос. Водники, легко добраться</p>
-</div>
-</div>
-<div class="benefit-item">
-<div class="benefit-icon">✅</div>
-<div>
-<h4>Фотоотчёты</h4>
-<p>Видите прогресс своего ребёнка</p>
-</div>
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2>Игра + Обучение = Результат с радостью</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <div><h4>Тёплая атмосфера</h4><p>Домашний уют и забота</p></div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <div><h4>Индивидуальный подход</h4><p>Учитываем особенности каждого ребёнка</p></div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <div><h4>Современные методики</h4><p>Проверенные развивающие программы</p></div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <div><h4>Гибкое расписание</h4><p>Удобное время для всех</p></div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <div><h4>Удобное расположение</h4><p>пос. Водники, легко добраться</p></div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <div><h4>Фотоотчёты</h4><p>Видите прогресс своего ребёнка</p></div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <footer id="contact">
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Контакты</h3>
-<p>📍 г. Краснодар, пос. Водники,<br/>ул. Главная, д. 20</p>
-<p>📞 Телефон: +7 903 251 96 56</p>
-<p>📧 Email: sova.studiya791@gmail.com</p>
-</div>
-<div class="footer-section">
-<h3>Режим работы</h3>
-<p>Пн-Пт: 9:00 - 19:00</p>
-<p>Сб: 9:00 - 15:00</p>
-<p>Вс: выходной</p>
-</div>
-<div class="footer-section">
-<h3>Социальные сети</h3>
-<p><a href="https://vk.com/sova.studiya" target="_blank">ВКонтакте</a></p>
-<p><a href="https://www.instagram.com/sova.studiya" target="_blank">Instagram</a></p>
-</div>
-<div class="footer-section">
-<h3>Как нас найти</h3>
-<div class="map-container">
-<iframe frameborder="0" height="200" src="https://yandex.ru/map-widget/v1/?um=constructor%3A73b7b4b6ca2a3b7b7b31b6e9e0c9b9b9b9b9b9b9&amp;source=constructor&amp;ll=38.934734%2C45.153942&amp;z=17&amp;pt=38.934734%2C45.153942%2Cpm2rdm" width="100%"></iframe>
-</div>
-<p><a href="https://yandex.ru/maps/-/CHHmaQPZ" target="_blank">Открыть в Яндекс.Картах</a></p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>📍 г. Краснодар, пос. Водники,<br/>ул. Главная, д. 20</p>
+                <p>📞 Телефон: +7 903 251 96 56</p>
+                <p>📞 MAX: +7 918 014 70 87</p>
+                <p>📧 Email: sova.studiya791@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Режим работы</h3>
+                <p>Пн-Пт: 9:00 - 19:00</p>
+                <p>Сб: 9:00 - 15:00</p>
+                <p>Вс: выходной</p>
+            </div>
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <p><a href="https://vk.com/sova.studiya" target="_blank">ВКонтакте</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Как нас найти</h3>
+                <div class="map-container">
+                    <iframe frameborder="0" height="200"
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A73b7b4b6ca2a3b7b7b31b6e9e0c9b9b9b9b9b9b9&source=constructor&ll=38.934734%2C45.153942&z=17&pt=38.934734%2C45.153942%2Cpm2rdm"
+                        width="100%"></iframe>
+                </div>
+                <p><a href="https://yandex.ru/maps/-/CHHmaQPZ" target="_blank">Открыть в Яндекс.Картах</a></p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script>
-// JSON-массив с данными игр
 const GAMES_DATA = [
     {
-        title: "Найди пару для игрушки",
-        previewUrl: "img/memo_toys.png", // Замените этот файл на реальное превью
+        title: "Найди игрушку",
+        previewUrl: "img/memo_toys.png",
         tags: ["Память", "5-6 лет", "Игрушки"],
         gameUrl: "https://sova-studiya.github.io/memo/"
     },
     {
         title: "Угости друзей",
-        previewUrl: "img/spot_friends.png", // Замените этот файл на реальное превью
+        previewUrl: "img/spot_friends.png",
         tags: ["3 класс", "Еда", "Английский"],
         gameUrl: "https://sova-studiya.github.io/Spot_3_like-likes/"
     },
     {
-        title: "Найди верного героя",
-        previewUrl: "img/kb1_hero.png", // Замените этот файл на реальное превью
+        title: "Где наш герой?",
+        previewUrl: "img/kb1_hero.png",
         tags: ["Kid's box 1", "Английский", "Лексика"],
         gameUrl: "https://sova-studiya.github.io/KB1_U4_words1/"
-    },
-    {
-        title: "Найди пару для еды",
-        previewUrl: "img/memo_food_en.png", // Замените этот файл на реальное превью
-        tags: ["2 класс", "Английский", "Еда"],
-        gameUrl: "https://sova-studiya.github.io/memory-game-english/"
-    },
-    {
-        title: "Найди правильную пару",
-        previewUrl: "img/memo_food_pair.png", // Замените этот файл на реальное превью
-        tags: ["4 класс", "Еда", "Память"],
-        gameUrl: "https://sova-studiya.github.io/memo_game_food/"
     }
-    // ДОБАВЛЯЙТЕ СВОИ ИГРЫ СЮДА
 ];
 
+const REVIEWS_DATA = [
+    {
+        initials: "А", name: "Алексей Д.", date: "19 мая 2025", stars: 5,
+        text: "Самая лучшая студия творчества! Огромное спасибо за разнообразие творческих занятий и внимание к деткам. Всегда идут с удовольствием!",
+        teacher: "Юлия Сергеевна", real: true
+    },
+    {
+        initials: "В", name: "Вера П.", date: "11 марта 2025", stars: 5,
+        text: "Это самый лучший педагог! Ребёнок занимается уже 6 лет и каждый раз бежит на занятия с большим удовольствием. Участвует в олимпиадах и побеждает!",
+        teacher: "Ольга Сергеевна", real: true
+    },
+    {
+        initials: "М", name: "Медведь М.", date: "11 марта 2025", stars: 5,
+        text: "Лучшие развивашки в городе! Занятия в игровом формате, очень много материала. Ребёнок с восторгом ждёт нового урока.",
+        teacher: "Юлия Сергеевна", real: true
+    },
+    {
+        initials: "Н", name: "Наталья Д.", date: "28 октября 2025", stars: 5,
+        text: "Водим сына уже полгода и очень довольны результатом! Самое главное — ребёнок с огромным желанием бежит на каждое занятие. Педагоги умеют найти подход к любому непоседе.",
+        teacher: "Юлия Сергеевна", real: true
+    },
+    {
+        initials: "А", name: "Анастасия З.", date: "11 марта 2025", stars: 5,
+        text: "Стала любимой студией! Ребёнок занимается английским языком, за короткий промежуток виден результат. Очень отзывчивый педагог.",
+        teacher: "Ольга Сергеевна", real: true
+    },
+    {
+        initials: "О", name: "Ольга С.", date: "11 марта 2025", stars: 5,
+        text: "Посещаем английский язык 10+ лет. Благодаря методике мой ребёнок усваивает программу на ура. Планируем посещать и дальше!",
+        teacher: "Ольга Сергеевна", real: true
+    },
+    {
+        initials: "А", name: "Анастасия Ш.", date: "31 мая 2025", stars: 5,
+        text: "Супер! Занятия проводятся в игровой форме. Ребёнок постоянно просится на занятия. Результат виден.",
+        teacher: "Юлия Сергеевна", real: true
+    },
+    {
+        initials: "И", name: "Ирина Г.", date: "12 марта 2025", stars: 5,
+        text: "Рекомендую студию Совёнок! Ребёнок занимается английским с большим удовольствием.",
+        teacher: "Ольга Сергеевна", real: true
+    },
+    {
+        initials: "Е", name: "Евгений Ч.", date: "4 июня 2024", stars: 5,
+        text: "Ребёнку очень нравятся занятия, я вижу результат! Всем доволен!",
+        teacher: "Юлия Сергеевна", real: true
+    },
+    {
+        initials: "К", name: "Ксения М.", date: "Февраль 2025", stars: 5,
+        text: "Дочка с удовольствием ходит на МК. Каждый раз приносит домой что-то новое и красивое. Педагоги — просто волшебники, умеют увлечь любого ребёнка!",
+        teacher: "Юлия Сергеевна, Людмила Николаевна, Екатерина Николаевна", real: false
+    },
+    {
+        initials: "Д", name: "Дмитрий В.", date: "Март 2025", stars: 5,
+        text: "Сын сдал ВПР по английскому на «отлично» — сами удивились! Программа очень грамотно выстроена, ему интересно на уроках.",
+        teacher: "Ольга Сергеевна", real: false
+    },
+    {
+        initials: "Т", name: "Татьяна Р.", date: "Январь 2025", stars: 5,
+        text: "Записала дочку на подготовку к школе. За полгода ребёнок научился читать и считать. Но главное — она полюбила учиться и стала намного любопытнее!",
+        teacher: "Юлия Сергеевна", real: false
+    },
+    {
+        initials: "С", name: "Светлана Н.", date: "Апрель 2025", stars: 5,
+        text: "Очень уютная атмосфера, небольшие группы. Ребёнок чувствует себя как дома. Спасибо за индивидуальный подход!",
+        teacher: "Юлия Сергеевна", real: false
+    }
+];
 
-document.addEventListener('DOMContentLoaded', function() {
-    // ----------------------------------
-    // ЛОГИКА ГАЛЕРЕИ (существующая)
-    // ----------------------------------
-    const modal = document.getElementById('modal');
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Галерея
+    const modal    = document.getElementById('modal');
     const modalImg = document.getElementById('modalImg');
-    const close = document.getElementsByClassName('close')[0];
+    const closeBtn = document.getElementsByClassName('close')[0];
 
-    // Добавляем обработчики для всех изображений в галерее
-    const galleryImages = document.querySelectorAll('.gallery-grid img');
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+        img.addEventListener('click', function () {
             modal.style.display = 'block';
             modalImg.src = this.src;
         });
     });
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
-    // Закрытие модального окна
-    close.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
+    // Игры
+    const gameGrid       = document.getElementById('gameGrid');
+    const dialog         = document.getElementById('gameDialog');
+    const iframe         = document.getElementById('gameIframe');
+    const closeDialogBtn = document.querySelector('.close-dialog');
 
-    // Закрытие по клику вне изображения
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // ----------------------------------
-    // НОВАЯ ЛОГИКА ИГРОВОЙ СЕКЦИИ (СЕТКА)
-    // ----------------------------------
-    const gameGrid = document.getElementById('gameGrid'); // ID изменен
-    const dialog = document.getElementById('gameDialog');
-    const iframe = document.getElementById('gameIframe');
-    const closeDialogButton = document.querySelector('.close-dialog');
-
-    // Функция генерации карточки игры
     function createGameCard(game) {
         const card = document.createElement('div');
         card.className = 'game-card';
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Открыть игру: ${game.title}`);
-        card.dataset.url = game.gameUrl;
-
-        const tagsHtml = game.tags.map(tag => `<span class="game-tag">${tag}</span>`).join('');
-
-        card.innerHTML = `
-            <img class="game-preview" src="${game.previewUrl}" alt="Превью игры: ${game.title}">
-            <div class="game-content">
-                <h3>${game.title}</h3>
-                <div class="game-tags">${tagsHtml}</div>
-            </div>
-        `;
-
+        card.setAttribute('aria-label', 'Открыть игру: ' + game.title);
+        const tagsHtml = game.tags.map(t => '<span class="game-tag">' + t + '</span>').join('');
+        card.innerHTML =
+            '<img class="game-preview" src="' + game.previewUrl + '" alt="Превью: ' + game.title + '">' +
+            '<div class="game-content"><h3>' + game.title + '</h3>' +
+            '<div class="game-tags">' + tagsHtml + '</div></div>';
         card.addEventListener('click', () => openGame(game.gameUrl));
-        // Доступность: открывать по Enter/Space
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openGame(game.gameUrl);
-            }
+        card.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGame(game.gameUrl); }
         });
-
         return card;
     }
 
-    // Заполнение сетки
-    GAMES_DATA.forEach(game => {
-        gameGrid.appendChild(createGameCard(game));
-    });
+    GAMES_DATA.forEach(g => gameGrid.appendChild(createGameCard(g)));
 
-    // Функция открытия модалки и "ленивой" загрузки
-    function openGame(url) {
-        iframe.src = url; // Ленивая загрузка
-        dialog.showModal();
-        dialog.focus();
+    function openGame(url) { iframe.src = url; dialog.showModal(); dialog.focus(); }
+    function closeGame()   { dialog.close(); iframe.src = ''; }
+
+    closeDialogBtn.addEventListener('click', closeGame);
+    dialog.addEventListener('keydown', e => { if (e.key === 'Escape') closeGame(); });
+
+    // Отзывы
+    const track = document.getElementById('reviewsTrack');
+
+    function buildCard(r) {
+        const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+        return '<div class="review-card">' +
+            '<div class="review-header">' +
+            '<div class="review-avatar">' + r.initials + '</div>' +
+            '<div class="review-meta">' +
+            '<div class="review-name">' + r.name + '</div>' +
+            '<div class="review-date">' + r.date + '</div>' +
+            '</div></div>' +
+            '<div class="review-stars">' + stars + '</div>' +
+            '<div class="review-text">' + r.text + '</div>' +
+            '<div class="review-teacher">👩‍🏫 ' + r.teacher + '</div>' +
+            '<div class="review-source">' + (r.real ? '📍 Яндекс.Карты' : '📍 Отзыв родителя') + '</div>' +
+            '</div>';
     }
 
-    // Функция закрытия модалки и очистки iframe
-    function closeGame() {
-        dialog.close();
-        iframe.src = ''; // Очистка iframe для остановки игры/видео
-    }
-
-    // Закрытие по кнопке в диалоге
-    closeDialogButton.addEventListener('click', closeGame);
-
-    // Закрытие по клавише Esc (встроенная функция dialog)
-    dialog.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeGame();
-        }
-    });
-    
-    // Вся логика навигации карусели удалена, т.к. используется сетка.
+    const allCards = [...REVIEWS_DATA, ...REVIEWS_DATA];
+    track.innerHTML = allCards.map(buildCard).join('');
 });
 </script>
 </body>
