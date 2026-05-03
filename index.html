@@ -706,7 +706,36 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
-
+.camp {
+    padding: 60px 0;
+    background: white;
+}
+.camp h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+.camp-subtitle {
+    text-align: center;
+    color: #6B9B6B;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+.camp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+.camp-img img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+@media (max-width: 768px) {
+    .camp-grid { grid-template-columns: 1fr; }
+}
      .news-img-card {
     border-radius: 20px;
     overflow: hidden;
@@ -852,7 +881,16 @@
         <a class="cta-button secondary" href="#programs">Актуальные программы</a>
     </div>
 </section>
-
+<section class="camp" id="camp">
+    <div class="container">
+        <h2>☀️ Летний лагерь «Совёнок»</h2>
+        <p class="camp-subtitle">Запись по телефонам: +7 903 251 96 56 / +7 918 014 70 87</p>
+        <div class="camp-grid">
+            <div class="camp-img"><img src="img/camp1.jpg" alt="Летний лагерь"/></div>
+            <div class="camp-img"><img src="img/camp2.jpg" alt="Летний лагерь"/></div>
+        </div>
+    </div>
+</section>
 <section class="programs" id="programs">
     <div class="container">
         <h2>Наши направления</h2>
