@@ -5,28 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Абонемент — Совёнок</title>
   <style>
+    * { box-sizing: border-box; }
     body {
-      font-family: -apple-system, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
-      background: #f5f6f8;
-      color: #555;
+      padding: 20px;
+      background: #F4F6F9;
+      color: #18202B;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #E1E6ED;
+      border-radius: 12px;
+      padding: 24px 20px;
+      max-width: 380px;
+      width: 100%;
+    }
+    .title {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    .hint {
+      font-size: 14px;
+      color: #4A5668;
+      line-height: 1.45;
+      margin: 0 0 18px;
+    }
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 16px;
+      background: #1F4FD8;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .sub-hint {
+      margin: 14px 0 0;
+      font-size: 12.5px;
+      color: #5A6678;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
-  <p>Открываем ваш абонемент...</p>
+  <div class="card">
+    <p class="title">Открываем ваш абонемент…</p>
+    <p class="hint">Если страница не загрузилась автоматически или появилась ошибка Google, нажмите кнопку ниже:</p>
+    <a id="openBtn" class="btn" href="#" target="_blank" rel="noopener">Открыть в браузере</a>
+    <p class="sub-hint">В WhatsApp также можно нажать <b>⋮</b> (три точки сверху) → <b>«Открыть в Chrome / браузере»</b>.</p>
+  </div>
 
   <script>
-    // ВАЖНО: замените на актуальный WEB_APP_URL из Код.gs
     var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNnR9FnDW4DLd2jNt6dNS8MtSPpBj7XCzELfWkzDouCnWEBruIAQXxRY3KurtJsyRlbg/exec';
 
-    // Переносим все параметры (?token=...) как есть на настоящий адрес
-    var params = window.location.search; // например "?token=abc123"
-    window.location.replace(APPS_SCRIPT_URL + params);
+    // Аккуратно извлекаем и очищаем token, даже если WhatsApp добавил лишние метки
+    var urlParams = new URLSearchParams(window.location.search);
+    var token = (urlParams.get('token') || '').trim();
+    var target = token
+      ? APPS_SCRIPT_URL + '?token=' + encodeURIComponent(token)
+      : APPS_SCRIPT_URL;
+
+    document.getElementById('openBtn').href = target;
+
+    // Небольшая задержка 150 мс помогает встроенному браузеру WhatsApp корректно инициализировать переход
+    setTimeout(function () {
+      window.location.replace(target);
+    }, 150);
   </script>
 </body>
 </html>
