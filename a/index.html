@@ -26,33 +26,19 @@
       max-width: 380px;
       width: 100%;
     }
-    .title {
-      font-size: 17px;
-      font-weight: 700;
-      margin: 0 0 8px;
-    }
-    .hint {
-      font-size: 14px;
-      color: #4A5668;
-      line-height: 1.45;
-      margin: 0 0 18px;
-    }
+    .title { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+    .hint { font-size: 14px; color: #4A5668; line-height: 1.45; margin: 0 0 18px; }
     .btn {
       display: block;
       width: 100%;
       padding: 13px 16px;
       background: #1F4FD8;
       color: #fff;
-      text-decoration: none;
+      border: none;
       border-radius: 8px;
       font-size: 15px;
       font-weight: 600;
-    }
-    .sub-hint {
-      margin: 14px 0 0;
-      font-size: 12.5px;
-      color: #5A6678;
-      line-height: 1.4;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -60,25 +46,16 @@
   <div class="card">
     <p class="title">Личный кабинет абонемента</p>
     <p class="hint">Нажмите кнопку ниже, чтобы открыть расписание и остаток занятий:</p>
-    <a id="openBtn" class="btn" href="#">Открыть абонемент</a>
-    <p class="sub-hint">Если страница не открывается в Samsung Internet, скопируйте адрес и откройте в Google Chrome.</p>
+    <form id="openForm" method="GET" action="https://script.google.com/macros/s/AKfycbzNnR9FnDW4DLd2jNt6dNS8MtSPpBj7XCzELfWkzDouCnWEBruIAQXxRY3KurtJsyRlbg/exec">
+      <input type="hidden" name="token" id="tokenInput" value="">
+      <button type="submit" class="btn">Открыть абонемент</button>
+    </form>
   </div>
 
   <script>
-    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNnR9FnDW4DLd2jNt6dNS8MtSPpBj7XCzELfWkzDouCnWEBruIAQXxRY3KurtJsyRlbg/exec';
     var urlParams = new URLSearchParams(window.location.search);
     var token = (urlParams.get('token') || '').trim();
-    var target = token
-      ? APPS_SCRIPT_URL + '?token=' + encodeURIComponent(token)
-      : APPS_SCRIPT_URL;
-
-    var btn = document.getElementById('openBtn');
-    btn.href = target;
-
-    // Плавный переход в текущей вкладке
-    setTimeout(function () {
-      window.location.href = target;
-    }, 300);
+    document.getElementById('tokenInput').value = token;
   </script>
 </body>
 </html>
